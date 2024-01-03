@@ -2,22 +2,25 @@ from django.db import models
 
 class CofferModel(models.Model):
     end_year = models.IntegerField(blank=True, null=True)
-    intensity = models.IntegerField()
-    sector = models.CharField(max_length=255)
-    topic = models.CharField(max_length=255)
-    insight = models.CharField(max_length=255)
-    url = models.URLField()
-    region = models.CharField(max_length=255)
+    intensity = models.IntegerField(blank=True, null=True)
+    sector = models.CharField(max_length=5000, blank=True, null=True)
+    topic = models.CharField(max_length=5000, blank=True, null=True)
+    insight = models.CharField(max_length=5000, blank=True, null=True)
+    url = models.URLField(max_length = 500, blank=True, null=True)
+    region = models.CharField(max_length=5000, blank=True, null=True)
     start_year = models.IntegerField(blank=True, null=True)
-    impact = models.CharField(max_length=255, blank=True, null=True)
-    added = models.DateTimeField()
-    published = models.DateTimeField()
-    country = models.CharField(max_length=255, blank = True, null = True)
-    relevance = models.IntegerField()
-    pestle = models.CharField(max_length=255)
-    source = models.CharField(max_length=255)
-    title = models.CharField(max_length=255)
-    likelihood = models.IntegerField()
+    impact = models.CharField(max_length=5000, blank=True, null=True)
+    added = models.DateTimeField(blank=True, null=True)
+    published = models.DateTimeField(blank=True, null=True)
+    country = models.CharField(max_length=5000, blank = True, null = True)
+    relevance = models.IntegerField(blank=True, null=True)
+    pestle = models.CharField(max_length=5000, blank=True, null=True)
+    source = models.CharField(max_length=5000, blank=True, null=True)
+    title = models.CharField(max_length=5000, blank=True, null=True)
+    likelihood = models.IntegerField(blank=True, null=True)
+
+    def get_fields(self):
+        return self._meta.get_fields()
 
     def __str__(self):
         return self.title

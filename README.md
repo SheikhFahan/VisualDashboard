@@ -1,1 +1,1 @@
-# VisualDashboard
+json validation and custom api for objects that require dynamically sending paticular field data with a single api-view  
